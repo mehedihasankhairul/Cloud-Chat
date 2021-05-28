@@ -3,12 +3,13 @@ import React from 'react';
 import './SidebarChat.css'
 
 
-const SidebarChat = () => {
+const SidebarChat = ({id, chatName}) => {
+
     return (
         <div className="sidebarChat">
             <Avatar />
             <div className="sidebarChat_info">
-            <h3> Channel Name</h3>
+            <h3>{chatName}</h3>
             <p>Last message sent</p>
             <small>timestamp</small>
             
