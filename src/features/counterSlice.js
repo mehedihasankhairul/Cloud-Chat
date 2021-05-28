@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchCount } from './counterAPI';
+// import { fetchCount } from './counter/counterAPI';
 
 const initialState = {
   value: 0,
@@ -14,16 +14,15 @@ const initialState = {
 export const incrementAsync = createAsyncThunk(
   'counter/fetchCount',
   async (amount) => {
-    const response = await fetchCount(amount);
-    // The value we return becomes the `fulfilled` action payload
-    return response.data;
+    // const response = await fetchCount(amount);
+    // // The value we return becomes the `fulfilled` action payload
+    // return response.data;
   }
 );
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const userSlice = createSlice({
+  name: 'user',
   initialState,
-  // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     increment: (state) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
