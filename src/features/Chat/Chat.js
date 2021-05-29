@@ -1,5 +1,5 @@
-import { IconButton } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import { IconButton} from '@material-ui/core';
+import React, { useState } from 'react';
 import './Chat.css'
 import MicNoneIcon from '@material-ui/icons/MicNone'
 import Message from '../Message/Message';
@@ -10,24 +10,10 @@ import firebase from 'firebase';
 import {selectUser} from '../userSlice'
 
 
+
 const Chat = () => {
     const user = useSelector(selectUser);
     const [input, setInput] = useState("")
-    const chatName = useSelector(selectChatName);
-    const chatId = useSelector(selectChatId);
-    const [messages, setMessages] = useState([]);
-
-    useEffect(() => {
-        if (chatId) {
-            dataBase.collection('chats').doc(chatId).collection("messages").orderBy('timestamp', 'desc').onSnapshot(snapshot => (
-                setMessages(snapshot.docs.map(doc => ({
-                    id: doc.id,
-                    data: doc.data()
-                })))
-            ))
-        }
-    })
-
     const sendMessage = (e) => {
 
         e.preventDefault();
@@ -46,7 +32,7 @@ const Chat = () => {
             {/*Chat header*/}
             <div className="chat_header">
                 <h4>
-                    To: <span className="channel_name">{chatName}</span>
+                    To: <span className="channel_name">Channel name</span>
                 </h4>
                 <strong>Details</strong>
             </div>
@@ -54,9 +40,19 @@ const Chat = () => {
 
             {/*Chat message*/}
             <div className="chat_messages">
+
                 {messages.map(({ id, data }) => (
                     <Message key={id} contents={data} />
                 ))}
+                
+            <h2>this is a message</h2>
+            <h2>this is a message</h2>
+            <h2>this is a message</h2>
+            <h2>this is a message</h2>
+            <h2>this is a message</h2>
+            <h2>this is a message</h2>
+            <h2>this is a message</h2>
+            <h2>this is a message</h2>
             </div>
 
             {/*chat input*/}
@@ -71,7 +67,7 @@ const Chat = () => {
                 </form>
 
                 <IconButton>
-                    <MicNoneIcon className="chat_mic" />
+                    <MicNoneIcon className="chat_mic"/>
                 </IconButton>
             </div>
         </div>
