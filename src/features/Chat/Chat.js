@@ -12,7 +12,7 @@ import {selectUser} from '../userSlice'
 
 const Chat = () => {
     const user = useSelector(selectUser);
-    const [input, setInput] = useState("")
+    const [input, setInput] = useState("");
     const chatName = useSelector(selectChatName);
     const chatId = useSelector(selectChatId);
     const [messages, setMessages] = useState([]);
@@ -34,7 +34,10 @@ const Chat = () => {
         dataBase.collection('chats').doc(chatId).collection("messages").add({
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             message: input,
-
+            uid: user.uid,
+            photo: user.photo,
+            email: user.email,
+            displayName: user.displayName
         });
 
         setInput("")
