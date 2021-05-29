@@ -56,7 +56,7 @@ const Sidebar = () => {
             </div>
 
             <div className="sidebar_chats">
-                {chats.map(({ id, data: { chatName } }) => (
+                {chats.map(({ id, data: { chatName }}) => (
                     <SidebarChat key={id} id={id} chatName={chatName} />
                 ))}
 
