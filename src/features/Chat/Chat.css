@@ -53,3 +53,9 @@
 .chat_input > form > button {
     display: none;
 }
+
+.input-ext {
+    color: rgba(0, 98, 255, 0.781); 
+    size: 10px;
+}
+

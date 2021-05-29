@@ -2,12 +2,15 @@ import { Avatar } from '@material-ui/core';
 import React from 'react';
 import './Message.css'
 
-const Message = () => {
+const Message = ({
+    id,
+    contents: {timestamp, displayName, email, message, photo, uid}
+}) => {
     return (
         <div className="message">
-            <Avatar />
-            <p>Message</p>
-            <small>timestamp</small>
+            <Avatar src={photo} />
+            <p>{message}</p>
+            <small>{new Date (timestamp?.toDate()).toLocaleString()}</small>
         </div>
     );
 };
