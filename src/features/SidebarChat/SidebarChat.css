@@ -4,10 +4,12 @@
     padding: 20px;
     border-bottom: 1px solid lightcyan;
     cursor: pointer;
+    color: whitesmoke;
+    text-transform: capitalize;
 }
 
 .sidebarChat:hover {
-    background-color: #3e93fd;
+    background-color: #3a3f46;
     color: white;
 }
 
