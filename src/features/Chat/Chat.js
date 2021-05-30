@@ -14,6 +14,7 @@ import { selectChatId, selectChatName } from '../chatSlice';
 import dataBase from '../Login/firebase';
 import firebase from 'firebase';
 import { selectUser } from '../userSlice';
+import FlipMove from 'react-flip-move';
 
 
 function Chat() {
@@ -45,7 +46,6 @@ function Chat() {
             email: user.email,
             displayName: user.displayName,
         });
-
         setInput("")
     }
 
@@ -63,9 +63,12 @@ function Chat() {
 
             {/*Chat message*/}
             <div className="chat_messages">
-                {messages.map(({ id, data }) => (
-                    <Message key={id} contents={data} />
-                ))}
+                <FlipMove>
+                    {messages.map(({ id, data }) => (
+                        <Message key={id} contents={data} />
+                    ))}
+                </FlipMove>
+
             </div>
 
             {/*chat input*/}
@@ -95,7 +98,7 @@ function Chat() {
                 </form>
 
                 <IconButton>
-                    <SendIcon className="input-ext" />
+                    <SendIcon onClick={sendMessage} className="input-ext" />
                 </IconButton>
 
                 <IconButton>

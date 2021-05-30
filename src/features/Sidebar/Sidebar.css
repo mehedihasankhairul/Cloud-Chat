@@ -48,7 +48,7 @@
 
  /* hide scrollbar for IE, edge and firefox */
  .sidebar_chats {
-     -ns-overflow-style: none; 
+     -ms-overflow-style: none; 
      scrollbar-width: none;
  }
  

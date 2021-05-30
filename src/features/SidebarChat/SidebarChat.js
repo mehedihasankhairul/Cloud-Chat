@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { setChat } from '../chatSlice';
 import dataBase from '../Login/firebase';
 import './SidebarChat.css'
+import * as timeago from 'timeago.js';
 
 
 function SidebarChat({ id, chatName }) {
@@ -26,18 +27,22 @@ function SidebarChat({ id, chatName }) {
             dispatch(
                 setChat({
                     chatId: id,
-                    chatName: chatName
+                    chatName: chatName,
                 })
             )
         }
-            className="sidebarChat"
-        >
-            <Avatar />
+        className="sidebarChat">
+
+            <Avatar src= {chatInfo[0]?.photo} />
             <div className="sidebarChat_info">
                 <h3>{chatName}</h3>
                 <p>{chatInfo[0]?.message}</p>
 
-                <small>timestamp</small>
+                <small>
+                    {timeago.format
+                        (new Date(chatInfo[0]?.timestamp?.toDate())
+                        )}
+                </small>
 
             </div>
 
