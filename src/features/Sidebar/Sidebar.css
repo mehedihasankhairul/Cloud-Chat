@@ -1,4 +1,5 @@
 .sidebar {
+    width: 35%;
     flex: 0.35;
     height: 100vh;
     display: flex;
@@ -11,7 +12,8 @@
     display: flex;
     align-items: center;
     padding: 10px;
-    height: 50px;
+    height: 60px;
+
 }
 
 .sidebar_avatar{
@@ -26,7 +28,7 @@
     justify-content: center;
     flex: 1;    
     background-color: #e1e1e1;
-    color: gray;
+    color: rgb(92, 94, 207);
     border-radius: 5px;
 }
 
@@ -34,6 +36,10 @@
     border: none;
     background: transparent;
     outline-width: 0;
+    color: tomato;
+}
+.MuiSvgIcon-root {
+    color: rgb(4, 106, 202);
 }
 
 .sidebar_chats {
@@ -51,4 +57,65 @@
      -ms-overflow-style: none; 
      scrollbar-width: none;
  }
- 
+
+/* for large mobile */
+ @media  (max-width: 425px ) {
+     .sidebar >  h3, p, small {
+        font-size: 8px;
+        color: orange;
+     }
+ }
+ @media  (max-width: 425px ) {
+     .sidebar {
+        background-color: rgb(12, 13, 14);
+     }
+ }
+ @media  (max-width: 425px ) {
+     .sidebar_input{
+         width: 34%;
+         display: none;
+     } 
+ }
+ @media  (max-width: 425px ) {
+     h3 {
+         color: white;
+     } 
+ }
+
+ @media  (max-width: 425px ) {
+    .chat_input {
+      background-color: rgb(12, 13, 14);
+    }
+}
+
+
+/* For small mobile */
+@media  (max-width: 320px ) {
+    .sidebar > p, small {
+       font-size: 6px;
+       color: orange;
+    }
+}
+@media  (max-width: 320px ) {
+    .sidebar {
+       background-color: rgb(12, 13, 14);
+    }
+}
+@media  (max-width: 320px ) {
+    .sidebar_input{
+        width: 0%;
+        display: none;
+    } 
+}
+@media  (max-width: 320px ) {
+    h3 {
+        font-size: 13px;
+        color: white;
+    } 
+}
+
+@media  (max-width: 320px ) {
+   .chat_input {
+     background-color: rgb(12, 13, 14);
+   }
+}

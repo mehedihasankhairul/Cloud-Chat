@@ -20,8 +20,8 @@
 .message > small {
     color: grey;
     position: absolute;
-    font-size: 8px;
-    bottom: -5px;
+    font-size: 7px;
+    bottom: -7px;
     right: 0;
 }
 
@@ -29,12 +29,15 @@
     margin-left: auto;
 }
 
+
 .message_sender > .message_photo {
     order: 1;
     margin: 15px;
+    margin-bottom: 10px;
 }
 .message_photo {
     order: 0;
+
 }
 
 .message_sender > p {

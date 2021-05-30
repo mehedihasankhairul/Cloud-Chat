@@ -25,3 +25,13 @@
     
 }
 
+@media  (max-width: 425px ) {
+    .chat_header {
+       background-color: rgb(12, 13, 14);
+    }
+}
+@media  (max-width: 425px ) {
+    .chat_header > strong {
+       color: tomato;
+    }
+}

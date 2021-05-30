@@ -1,13 +1,13 @@
-import { IconButton } from '@material-ui/core';
+import { Button, IconButton } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import './Chat.css'
-import MicNoneIcon from '@material-ui/icons/MicNone';
-import ThumbButton from '@material-ui/icons/ThumbUpAlt';
+// import MicNoneIcon from '@material-ui/icons/MicNone';
+// import ThumbButton from '@material-ui/icons/ThumbUpAlt';
 import SendIcon from '@material-ui/icons/Send';
-import AttachFileSharpIcon from '@material-ui/icons/AttachFileSharp';
+// import AttachFileSharpIcon from '@material-ui/icons/AttachFileSharp';
 import PhotoLibrarySharpIcon from '@material-ui/icons/PhotoLibrarySharp';
-import GifOutlinedIcon from '@material-ui/icons/GifOutlined';
-import EmojiObjectsOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
+// import GifOutlinedIcon from '@material-ui/icons/GifOutlined';
+// import EmojiObjectsOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
 import Message from '../Message/Message';
 import { useSelector } from 'react-redux';
 import { selectChatId, selectChatName } from '../chatSlice';
@@ -15,6 +15,7 @@ import dataBase from '../Login/firebase';
 import firebase from 'firebase';
 import { selectUser } from '../userSlice';
 import FlipMove from 'react-flip-move';
+import auth from '../Login/firebase';
 
 
 function Chat() {
@@ -35,8 +36,11 @@ function Chat() {
         }
     }, [chatId]);
 
-    const sendMessage = (e) => {
+    const signOut = () => {
+        alert("Problem Found. Developer will Fix it soon")
+    }
 
+    const sendMessage = (e) => {
         e.preventDefault();
         dataBase.collection('chats').doc(chatId).collection("messages").add({
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -57,7 +61,7 @@ function Chat() {
                 <h4>
                     To: <span className="channel_name">{chatName}</span>
                 </h4>
-                <strong>Details</strong>
+                <Button className="" onClick={signOut}></Button>
             </div>
 
 
@@ -75,39 +79,47 @@ function Chat() {
             <div className="chat_input">
 
                 <IconButton>
-                    <AttachFileSharpIcon className="input-ext" />
-                </IconButton>
-                <IconButton>
-                    <EmojiObjectsOutlinedIcon className="input-ext" />
-                </IconButton>
-                <IconButton>
                     <PhotoLibrarySharpIcon className="input-ext" />
                 </IconButton>
+                {/*
+                <IconButton>
+                    <AttachFileSharpIcon className="input-ext" />
+                </IconButton>
+            
+               
                 <IconButton>
                     <GifOutlinedIcon className="input-ext" />
                 </IconButton>
 
+                 <IconButton>
+                    <EmojiObjectsOutlinedIcon className="input-ext" />
+                </IconButton>
+               */}
+
                 <form>
                     <input
-                        value={input}
+                        value={input.value}
                         onChange={(e) => setInput(e.target.value)}
                         placeholder="Type Here"
                         type="text"
+
                     />
                     <button onClick={sendMessage}> Send Message</button>
                 </form>
 
                 <IconButton>
-                    <SendIcon onClick={sendMessage} className="input-ext" />
+                    <SendIcon onClick={sendMessage} className="send_icon" />
                 </IconButton>
 
-                <IconButton>
+                {/*     <IconButton>
                     <ThumbButton className="input-ext" />
-                </IconButton>
+                </IconButton> 
+          
 
                 <IconButton>
                     <MicNoneIcon className="chat_mic" />
                 </IconButton>
+                 */}
             </div>
         </div>
     );

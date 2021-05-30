@@ -56,11 +56,12 @@
  }
 
 .chat_input > form > input {
-    width: 98%;
+    width: 90%;
     outline-width: 0;
-    border: 1px solid lightgray;
+    border: 3px solid lightgray;
     border-radius: 999px;
-    padding: 5px;
+    padding: 8px;
+    
 }
 
 .chat_input > form > button {
@@ -70,5 +71,9 @@
 .input-ext {
     color: rgba(0, 98, 255, 0.781); 
     size: 10px;
+    flex: 1;
 }
-
+.send_icon {
+    color: rgba(0, 98, 255, 0.781); 
+    size: 10px;
+}

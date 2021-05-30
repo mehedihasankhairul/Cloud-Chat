@@ -25,10 +25,9 @@ const Sidebar = () => {
     }, []);
 
     const addChat = () => {
+
         const chatName = prompt("Create Chat");
-
         if (chatName) {
-
             dataBase.collection('chats').add({
                 chatName: chatName,
             });
@@ -51,8 +50,6 @@ const Sidebar = () => {
                 <IconButton variant="outlined" className="sidebar-inputButton">
                     <RateReviewOutlinedIcon onClick={addChat} />
                 </IconButton>
-
-
             </div>
 
             <div className="sidebar_chats">
