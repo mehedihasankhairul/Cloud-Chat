@@ -25,11 +25,11 @@ function Chat() {
 
     useEffect(() => {
         if (chatId) {
-            dataBase.collection("chats").doc(chatId).collection("messages").orderBy('timestamp', 'desc').onSnapshot(snapshot => (
-                setMessages(snapshot.docs.map(doc => ({
+            dataBase.collection("chats").doc(chatId).collection("messages").orderBy("timestamp", "desc").onSnapshot((snapshot) => setMessages(
+                snapshot.docs.map((doc) => ({
                     id: doc.id,
-                    data: doc.data()
-                })))
+                    data: doc.data(),
+                }))
             ))
         }
     }, [chatId]);
